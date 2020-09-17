@@ -1,8 +1,24 @@
 import csv
-ta=None
-with open('papa.csv') as csv_file:
+from datetime import datetime
+devtoCsv=None
+with open('devto.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    ta=list(csv_reader)
+    devtoCsv=list(csv_reader)
+tanggal=datetime.now()
+
+tanggalSekarang=str(tanggal.day)+"-"+str(tanggal.month)+"-"+str(tanggal.year)
+READMES="""last scraped in %s
+
+---
+
+## List of item scraped from devto shop
+
+|no|image|url|title|price|
+|--|-----|---|-----|-----|\n""" % (tanggalSekarang)
+number=0
+for item in devtoCsv[1:len(devtoCsv)]:
+    number+=1
+    READMES+="|"+str(number)+"|[<img src='"+item[0]+"' width='100px' height='100px' />]|"+item[1]+"|"+item[2]+"|"+item[3]+"|\n"
 f = open("README.md", "a")
-f.write(capin)
+f.write(READMES)
 f.close()
