@@ -18,7 +18,7 @@ READMES="""last scraped in %s
 number=0
 for item in devtoCsv[1:len(devtoCsv)]:
     number+=1
-    READMES+="|"+str(number)+"|<img src='"+item[0]+"' width='200px' height='200px' />|"+item[1]+"|"+item[2]+"|"+item[3]+"|\n"
+    READMES+="|"+str(number)+"|<img src='"+item[0]+"' width='300px' height='200px' />|"+item[1]+"|"+item[2]+"|$ "+item[3]+"|\n"
 f = open("README.md", "w+")
 f.write(READMES)
 f.close()
